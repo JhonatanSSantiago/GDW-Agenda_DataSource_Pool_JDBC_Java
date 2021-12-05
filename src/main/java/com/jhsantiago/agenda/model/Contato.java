@@ -81,7 +81,16 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "<br>Contato{" + "codigo=" + codigo + ", nome=" + nome + ", Telefones= "+telefones+"}<br>";
+       String texto= "<contato>"+
+                        "<codigo>"+codigo+"</codigo>"+
+                        "<nome>"+nome+"</nome>"+
+                        "<telefones>";
+                            for(Telefone t:telefones){
+                                texto+=t.toString();
+                            }
+                        texto+="</telefones>"+
+                    "</contato>";
+       return texto;
     }
     
     

@@ -4,9 +4,17 @@
         <servlet-name>Inserir</servlet-name>
         <servlet-class>com.jhsantiago.agenda.controller.Inserir</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Mostrar</servlet-name>
+        <servlet-class>com.jhsantiago.agenda.controller.Mostrar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Inserir</servlet-name>
         <url-pattern>/inserir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Mostrar</servlet-name>
+        <url-pattern>/mostrar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

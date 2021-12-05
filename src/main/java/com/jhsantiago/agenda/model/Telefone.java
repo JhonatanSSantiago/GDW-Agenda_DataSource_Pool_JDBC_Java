@@ -84,7 +84,10 @@ public class Telefone {
 
     @Override
     public String toString() {
-        return "Telefone{" + "codigo=" + codigo + ", numero=" + numero + ", ddd=" + ddd + ", tipo=" + tipo + '}';
+        return "<telefone><codigo>"+codigo+"</codigo>"+
+                 "<numero>"+numero+"</numero>"+
+                 "<ddd>"+ddd+"</ddd>"+
+                 "<tipo>"+tipo+"</tipo></telefone>";
     }
     
     
