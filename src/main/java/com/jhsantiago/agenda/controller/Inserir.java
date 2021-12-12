@@ -8,6 +8,7 @@ package com.jhsantiago.agenda.controller;
 import com.jhsantiago.agenda.dao.ContatoDao;
 import com.jhsantiago.agenda.dao.ErroDAOException;
 import com.jhsantiago.agenda.model.Contato;
+import com.jhsantiago.agenda.xml.ManipulaXml;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,29 +33,22 @@ public class Inserir extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/plain;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Inserir</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            
-            Contato c = new Contato(0, "Ana Paula");
+            String dados = request.getParameter("xml");
+            ManipulaXml m = new ManipulaXml();
+            Contato c = m.TrasnformaContato(dados);         
             ContatoDao dao;
             try {
                 dao= new ContatoDao();
                 dao.criar(c);
+                dao.sair();
                 out.print("Inserido com Sucesso");
             } catch (ErroDAOException ex) {
-                out.print(ex);          
+                out.print("Erro ao Inserir");          
             }
             
-            
-            out.println("</body>");
-            out.println("</html>");
+           
         }
     }
 

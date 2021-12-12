@@ -16,5 +16,6 @@ public interface ContatoInterface {
     public void criar(Contato c) throws ErroDAOException;
     public Contato buscar(int codigo) throws ErroDAOException;
     public List<Contato> buscarContatos() throws ErroDAOException;
+    public void excluirContato(int codigo) throws ErroDAOException;
     public void sair() throws ErroDAOException;
 }

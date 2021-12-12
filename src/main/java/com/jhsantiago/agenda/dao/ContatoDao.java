@@ -54,7 +54,7 @@ public class ContatoDao implements ContatoInterface {
 
     @Override
     public Contato buscar(int codigo) throws ErroDAOException {
-       return null;
+        return null;
     }
 
     @Override
@@ -78,6 +78,19 @@ public class ContatoDao implements ContatoInterface {
         } catch (SQLException ex) {
             throw new ErroDAOException(ex);
         }
+    }
+    
+    @Override
+    public void excluirContato(int codigo) throws ErroDAOException {
+        try {
+            try (PreparedStatement ps = con.prepareStatement("delete from contato where codigo = ?")) {
+                ps.setInt(1, codigo);
+                ps.executeUpdate();
+            }
+            } catch (SQLException ex) {
+            throw new ErroDAOException(ex);
+        }
+        
     }
     
     @Override

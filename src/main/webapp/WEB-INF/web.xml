@@ -8,6 +8,10 @@
         <servlet-name>Mostrar</servlet-name>
         <servlet-class>com.jhsantiago.agenda.controller.Mostrar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Excluir</servlet-name>
+        <servlet-class>com.jhsantiago.agenda.controller.Excluir</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Inserir</servlet-name>
         <url-pattern>/inserir</url-pattern>
@@ -16,9 +20,18 @@
         <servlet-name>Mostrar</servlet-name>
         <url-pattern>/mostrar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Excluir</servlet-name>
+        <url-pattern>/excluir</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <resource-ref>
+        <res-ref-name>jdbc/agenda</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
 </web-app>
